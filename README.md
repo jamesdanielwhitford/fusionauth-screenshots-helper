@@ -85,7 +85,17 @@ This resizes the Safari window to the correct dimensions, disables wallpaper tin
 
 If a screenshot needs to be taller than the script's window allows (content is cut off at the bottom), drag the Safari window taller -- do not make it narrower. Then use `CMD+Shift+4+Space` and click the Safari window to capture manually instead of using the script's screenshot. Do not run the script again as it will resize the window.
 
-## Step 8: Crop if needed
+## Step 8: Set up the import tenant (for `list-users.png` only)
+
+The `list-users.png` screenshot shows a user that has been migrated into a tenant called "AD B2C Import". After starting FusionAuth and logging in, run:
+
+```bash
+./setup-import-tenant.sh
+```
+
+This creates the "AD B2C Import" tenant and adds a user with the correct email, name, and Azure AD B2C username to match the original screenshot. Then go to Users, search for "test", and take the screenshot from there.
+
+## Step 9: Crop if needed
 
 Open the screenshot in Preview.app and crop top/bottom only -- never crop the sides. If you crop, note which edge so the `top-cropped` or `bottom-cropped` class can be added in the MDX.
 
