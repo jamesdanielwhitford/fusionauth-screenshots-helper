@@ -35,13 +35,7 @@ Read through the docs article linked above to see the context around each screen
 
 The `fa-screenshot.sh` script will also disable wallpaper tinting automatically if it detects it is on.
 
-### 2. Add hosts entry
-
-```bash
-echo "127.0.0.1 local.fusionauth.io" | sudo tee -a /etc/hosts
-```
-
-### 3. Install ImageMagick (required by the screenshot script)
+### 2. Install ImageMagick (required by the screenshot script)
 
 ```bash
 brew install imagemagick
@@ -53,7 +47,7 @@ brew install imagemagick
 docker compose up -d
 ```
 
-Wait about 30 seconds, then open `http://local.fusionauth.io:9011` in Safari. The FusionAuth contributing guidelines require this hostname to appear in the address bar. If Safari upgrades it to `https://` and refuses to connect, type the URL directly into the address bar including the `http://` prefix and hit enter -- do not let Safari autocomplete it.
+Wait about 30 seconds, then open `http://localhost:9011` in Safari and log in. Navigate to the screen you want to capture. Just before taking the screenshot, replace the URL in the address bar with `local.fusionauth.io` so that hostname appears in the bar -- the FusionAuth contributing guidelines require it.
 
 Login with:
 - Email: `admin@fusionauth.io`
