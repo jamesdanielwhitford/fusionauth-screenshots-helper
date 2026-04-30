@@ -53,7 +53,7 @@ brew install imagemagick
 docker compose up -d
 ```
 
-Wait about 30 seconds, then open http://local.fusionauth.io:9011 in Safari.
+Wait about 30 seconds, then open `http://local.fusionauth.io:9011` in Safari. The FusionAuth contributing guidelines require this hostname to appear in the address bar. If Safari upgrades it to `https://` and refuses to connect, type the URL directly into the address bar including the `http://` prefix and hit enter -- do not let Safari autocomplete it.
 
 Login with:
 - Email: `admin@fusionauth.io`
