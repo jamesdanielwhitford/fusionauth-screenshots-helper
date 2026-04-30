@@ -80,7 +80,9 @@ Navigate to the FusionAuth admin UI at http://local.fusionauth.io:9011/admin and
 
 ### Step 3: Capture
 
-Use `CMD+Shift+4+Space` then click the Safari window to capture with drop-shadow. Screenshots save to `~/Desktop/` by default.
+The script automatically takes a screenshot and saves it to `~/Desktop/screenshots/`. Use this screenshot -- it has the correct dimensions.
+
+If the content you need is taller than the window (i.e. the script's screenshot cuts off content at the bottom), use `CMD+Shift+4+Space` then click the Safari window instead to capture manually. This gives a drop-shadow style screenshot. Note: the background behind the drop-shadow is transparent, so make sure your desktop background is **not black or a dark color** -- it will bleed through into the shadow. Use a light or neutral desktop background when taking screenshots.
 
 ### Step 4: Resize to 1600px wide
 
