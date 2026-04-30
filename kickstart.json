@@ -1,0 +1,141 @@
+{
+  "variables": {
+    "adminEmail": "admin@fusionauth.io",
+    "adminPassword": "password",
+    "defaultTenantId": "30663132-6464-6665-3032-326466613934"
+  },
+  "apiKeys": [
+    {
+      "key": "bf69486b-4733-4470-a592-f1bfce7af580",
+      "description": "Standard API key"
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "url": "/api/application/85a03867-dccf-4882-adde-1a79aeec50df",
+      "body": {
+        "application": {
+          "name": "Pied Piper",
+          "roles": [
+            { "name": "dev" },
+            { "name": "ceo" },
+            { "name": "intern" }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration/00000000-0000-0000-0000-000000000001",
+      "body": {
+        "user": {
+          "email": "#{adminEmail}",
+          "firstName": "Erlich",
+          "lastName": "Bachman",
+          "password": "#{adminPassword}"
+        },
+        "registration": {
+          "applicationId": "#{FUSIONAUTH_APPLICATION_ID}",
+          "roles": ["admin"]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration/00000000-0000-0000-0000-000000000002",
+      "body": {
+        "user": {
+          "email": "jared@piedpiper.com",
+          "firstName": "Jared",
+          "lastName": "Dunn",
+          "password": "password"
+        },
+        "registration": {
+          "applicationId": "85a03867-dccf-4882-adde-1a79aeec50df",
+          "roles": ["dev"]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration/00000000-0000-0000-0000-000000000003",
+      "body": {
+        "user": {
+          "email": "dinesh@piedpiper.com",
+          "firstName": "Dinesh",
+          "lastName": "Chugtai",
+          "password": "password"
+        },
+        "registration": {
+          "applicationId": "85a03867-dccf-4882-adde-1a79aeec50df",
+          "roles": ["dev"]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration/00000000-0000-0000-0000-000000000004",
+      "body": {
+        "user": {
+          "email": "gilfoyle@piedpiper.com",
+          "firstName": "Bertram",
+          "lastName": "Gilfoyle",
+          "password": "password"
+        },
+        "registration": {
+          "applicationId": "85a03867-dccf-4882-adde-1a79aeec50df",
+          "roles": ["dev"]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration/00000000-0000-0000-0000-000000000005",
+      "body": {
+        "user": {
+          "email": "richard@piedpiper.com",
+          "firstName": "Richard",
+          "lastName": "Hendricks",
+          "password": "password"
+        },
+        "registration": {
+          "applicationId": "85a03867-dccf-4882-adde-1a79aeec50df",
+          "roles": ["ceo"]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration/00000000-0000-0000-0000-000000000006",
+      "body": {
+        "user": {
+          "email": "monica@piedpiper.com",
+          "firstName": "Monica",
+          "lastName": "Hall",
+          "password": "password"
+        },
+        "registration": {
+          "applicationId": "85a03867-dccf-4882-adde-1a79aeec50df",
+          "roles": ["intern"]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/api/user/registration/00000000-0000-0000-0000-000000000007",
+      "body": {
+        "user": {
+          "email": "nelson@piedpiper.com",
+          "firstName": "Nelson",
+          "lastName": "Bighetti",
+          "password": "password"
+        },
+        "registration": {
+          "applicationId": "85a03867-dccf-4882-adde-1a79aeec50df",
+          "roles": ["intern"]
+        }
+      }
+    }
+  ]
+}
