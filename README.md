@@ -1,16 +1,34 @@
 # FusionAuth Screenshots Helper
 
-This repo contains everything needed to take replacement screenshots for two FusionAuth articles being refreshed.
-
-## The article
+This repo contains everything needed to take replacement screenshots for the FusionAuth Azure AD B2C migration docs guide. Read through the article first to understand the context of each screenshot before starting.
 
 - **Docs guide** (branch `refresh/azure-ad-b2c-docs`): https://github.com/ritza-co/fusionauth-site/blob/refresh/azure-ad-b2c-docs/astro/src/content/docs/lifecycle/migrate-users/provider-specific/azureadb2c.mdx
 
-## Screenshots needed
+## Step 1: Install dependencies
 
-All screenshots go in `astro/public/img/docs/lifecycle/migrate-users/provider-specific/azureadb2c/` in the `ritza-co/fusionauth-site` repo on the `refresh/azure-ad-b2c-docs` branch.
+```bash
+brew install imagemagick
+```
 
-These are the 9 screenshots to retake (all FusionAuth admin UI, no Azure portal screenshots needed):
+Also make sure Docker Desktop is installed and running.
+
+## Step 2: macOS settings
+
+- System Settings > Appearance > set to **Light** mode
+- System Settings > Appearance > turn **off** "Allow wallpaper tinting in windows"
+- Make sure your desktop background is a light or neutral color -- the drop-shadow on screenshots is transparent, so a dark background will bleed through
+
+## Step 3: Clone the fusionauth-site repo and check out the branch
+
+```bash
+git clone https://github.com/ritza-co/fusionauth-site.git
+cd fusionauth-site
+git checkout refresh/azure-ad-b2c-docs
+```
+
+## Step 4: Review which screenshots are needed
+
+All screenshots go in `astro/public/img/docs/lifecycle/migrate-users/provider-specific/azureadb2c/`. These are the 9 to retake (all FusionAuth admin UI -- no Azure portal screenshots are needed):
 
 | Filename | What to capture |
 |---|---|
@@ -24,79 +42,53 @@ These are the 9 screenshots to retake (all FusionAuth admin UI, no Azure portal 
 | `list-of-tenants-delete-highlighted.png` | Tenants list with the delete button highlighted in red |
 | `list-users.png` | Users list showing imported users |
 
-Read through the docs article linked above to see the context around each screenshot before taking it.
+## Step 5: Start FusionAuth
 
-## macOS setup (do once)
-
-### 1. System settings
-
-- System Settings > Appearance > set to **Light** mode
-- System Settings > Appearance > turn **off** "Allow wallpaper tinting in windows"
-
-The `fa-screenshot.sh` script will also disable wallpaper tinting automatically if it detects it is on.
-
-### 2. Install ImageMagick (required by the screenshot script)
-
-```bash
-brew install imagemagick
-```
-
-## Start FusionAuth
+From this repo's directory:
 
 ```bash
 docker compose up -d
 ```
 
-Wait about 30 seconds, then open `http://localhost:9011` in Safari and log in. Navigate to the screen you want to capture. Just before taking the screenshot, replace the URL in the address bar with `local.fusionauth.io` so that hostname appears in the bar -- the FusionAuth contributing guidelines require it.
+Wait about 30 seconds for FusionAuth to start.
 
-Login with:
+## Step 6: Log in to FusionAuth
+
+Open Safari and go to `http://localhost:9011`. Log in with:
+
 - Email: `admin@fusionauth.io`
 - Password: `password`
 
 The kickstart will have pre-populated 7 Silicon Valley users (Erlich Bachman, Richard Hendricks, Dinesh Chugtai, Bertram Gilfoyle, Jared Dunn, Monica Hall, Nelson Bighetti) all with password `password`.
 
-## Taking screenshots
+## Step 7: Take each screenshot
 
-### Step 1: Run the sizing script
+For each screenshot in the table above:
+
+**1. Run the sizing script** (from this repo's directory):
 
 ```bash
 ./fa-screenshot.sh
 ```
 
-This will:
-- Resize the Safari window to the correct dimensions (1080x1100px)
-- Disable wallpaper tinting if needed
-- Take an automatic screenshot (ignore this one)
+This resizes the Safari window to the correct dimensions, disables wallpaper tinting if needed, and saves an automatic screenshot to `~/Desktop/screenshots/` -- this is the screenshot you will use.
 
-### Step 2: Navigate Safari to the right screen
+**2. Navigate Safari** to the relevant screen in the FusionAuth admin UI at `http://localhost:9011/admin`.
 
-Navigate to the FusionAuth admin UI at http://local.fusionauth.io:9011/admin and go to the relevant screen for each screenshot.
+**3. Replace the URL** in the Safari address bar with the following before taking the screenshot -- the FusionAuth contributing guidelines require this hostname to appear in the bar. Copy this exactly so the spacing centers it correctly:
 
-### Step 3: Capture
-
-The script automatically takes a screenshot and saves it to `~/Desktop/screenshots/`. Use this screenshot -- it has the correct dimensions.
-
-If the content you need is taller than the window (i.e. the script's screenshot cuts off content at the bottom), use `CMD+Shift+4+Space` then click the Safari window instead to capture manually. This gives a drop-shadow style screenshot. Note: the background behind the drop-shadow is transparent, so make sure your desktop background is **not black or a dark color** -- it will bleed through into the shadow. Use a light or neutral desktop background when taking screenshots.
-
-### Step 4: Resize to 1600px wide
-
-```bash
-sips --resampleWidth 1600 your-screenshot.png
+```
+                                      local.fusionauth.io
 ```
 
-### Step 5: Crop if needed
+**4. Use the script's screenshot** saved in `~/Desktop/screenshots/` -- it already has the correct dimensions.
 
-Open in Preview.app and crop top/bottom only (never sides) to remove unnecessary content. If you crop, note which edge was cropped -- the image will need a `top-cropped` or `bottom-cropped` class added in the MDX.
+If a screenshot needs to be taller than the script's window allows (content is cut off at the bottom), drag the Safari window taller -- do not make it narrower. Then use `CMD+Shift+4+Space` and click the Safari window to capture manually instead of using the script's screenshot. Do not run the script again as it will resize the window.
 
-## Screenshot requirements (from FusionAuth CONTRIBUTING.md)
+## Step 8: Crop if needed
 
-See `FUSIONAUTH-CONTRIBUTING.md` for the full style guide. Key screenshot rules:
+Open the screenshot in Preview.app and crop top/bottom only -- never crop the sides. If you crop, note which edge so the `top-cropped` or `bottom-cropped` class can be added in the MDX.
 
-- Light mode only
-- Window width: 1080px (script handles this)
-- Capture with `CMD+Shift+4+Space` for drop-shadow style
-- Resize to 1600px wide after capture
-- Crop top/bottom only, never sides
-- Highlights (if needed) should be red rectangles, line weight 5, drawn in Preview
-- Do not use cropping and drop-shadow on the same image
-- Images must be PNG
+## Full style guide
+
+See `FUSIONAUTH-CONTRIBUTING.md` for the full FusionAuth screenshot requirements.
