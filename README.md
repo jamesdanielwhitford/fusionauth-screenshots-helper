@@ -41,13 +41,7 @@ The `fa-screenshot.sh` script will also disable wallpaper tinting automatically 
 echo "127.0.0.1 local.fusionauth.io" | sudo tee -a /etc/hosts
 ```
 
-### 3. Safari settings
-
-- Open Safari > Settings > Advanced > enable "Show features for web developers"
-- Open Safari > Settings > Advanced > enable "Allow JavaScript from Apple Events"
-- Make sure Safari is in **light mode**
-
-### 4. Install ImageMagick (required by the screenshot script)
+### 3. Install ImageMagick (required by the screenshot script)
 
 ```bash
 brew install imagemagick
