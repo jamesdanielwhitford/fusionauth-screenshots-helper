@@ -2,12 +2,9 @@
 
 This repo contains everything needed to take replacement screenshots for two FusionAuth articles being refreshed.
 
-## The articles
+## The article
 
 - **Docs guide** (branch `refresh/azure-ad-b2c-docs`): https://github.com/ritza-co/fusionauth-site/blob/refresh/azure-ad-b2c-docs/astro/src/content/docs/lifecycle/migrate-users/provider-specific/azureadb2c.mdx
-- **Blog post** (branch `refresh/azure-ad-b2c-blog`): https://github.com/ritza-co/fusionauth-site/blob/refresh/azure-ad-b2c-blog/astro/src/content/blog/how-to-migrate-from-azure-ad-b2c.mdx
-
-Screenshots only need to be taken for the **docs guide**. The blog post has no screenshots.
 
 ## Screenshots needed
 
