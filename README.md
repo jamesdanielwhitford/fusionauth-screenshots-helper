@@ -87,7 +87,7 @@ If a screenshot needs to be taller than the script's window allows (content is c
 
 ## Step 8: Set up the import tenant (for `list-users.png` only)
 
-The `list-users.png` screenshot shows a user that has been migrated into a tenant called "AD B2C Import". After starting FusionAuth and logging in, run:
+The `list-users.png` screenshot shows the result of a completed bulk migration -- a user that has been imported into a tenant called "AD B2C Import". We cannot run the actual migration (it requires an Azure AD B2C tenant, which can no longer be created for new accounts), so we fake the end state by creating the tenant and user manually. After starting FusionAuth and logging in, run:
 
 ```bash
 ./setup-import-tenant.sh
